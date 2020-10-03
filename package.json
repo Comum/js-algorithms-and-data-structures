@@ -1,0 +1,22 @@
+{
+	"name": "js-algorithms-and-data-structures",
+	"version": "1.0.0",
+	"description": "Collection of some algorithms and data structures exemplified with javascript.",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Comum/js-algorithms-and-data-structures.git"
+	},
+	"author": "Miguel Ribeiro",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Comum/js-algorithms-and-data-structures/issues"
+	},
+	"homepage": "https://github.com/Comum/js-algorithms-and-data-structures#readme",
+	"devDependencies": {
+		"jest": "^26.4.2"
+	}
+}
