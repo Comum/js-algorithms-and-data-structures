@@ -15,11 +15,11 @@ function isAnagram(arr1, arr2) {
 	let obj2 = {};
 
 	for (let char of arr1) {
-		obj1[char] = obj1[char]++ || 1;
+		obj1[char] = ++obj1[char] || 1;
 	}
 
 	for (let char of arr2) {
-		obj2[char] = obj2[char]++ || 1;
+		obj2[char] = ++obj2[char] || 1;
 	}
 
 	for (let key in obj1) {
@@ -49,11 +49,11 @@ function same(arr1, arr2) {
 
 	for (let num of arr1) {
 		const numSquared = num * num;
-		obj1[numSquared] = obj1[numSquared]++ || 1;
+		obj1[numSquared] = ++obj1[numSquared] || 1;
 	}
 
 	for (let num of arr2) {
-		obj2[num] = obj2[num]++ || 1;
+		obj2[num] = ++obj2[num] || 1;
 	}
 
 	for (let key in obj1) {

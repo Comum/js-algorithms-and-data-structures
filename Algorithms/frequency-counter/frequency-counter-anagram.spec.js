@@ -13,6 +13,12 @@ describe('::isAnagram', () => {
 		});
 	});
 
+	describe('given another 2 words that have same number of letters', () => {
+		it('should be false', () => {
+			expect(isAnagram('aaz', 'zza')).toBe(false);
+		});
+	});
+
 	describe('given 2 words that have same number of letters', () => {
 		it('should be true', () => {
 			expect(isAnagram('roma', 'amor')).toBe(true);
