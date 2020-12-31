@@ -12,20 +12,17 @@ function isAnagram(arr1, arr2) {
 	}
 
 	let obj1 = {};
-	let obj2 = {};
 
 	for (let char of arr1) {
 		obj1[char] = ++obj1[char] || 1;
 	}
 
 	for (let char of arr2) {
-		obj2[char] = ++obj2[char] || 1;
-	}
-
-	for (let key in obj1) {
-		if (!(key in obj2) || obj1[key] !== obj2[key]) {
+		if (!(char in obj1) || !obj1[char]) {
 			return false;
 		}
+
+		obj1[char]--;
 	}
 
 	return true;
