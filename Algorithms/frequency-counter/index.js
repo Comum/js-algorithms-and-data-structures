@@ -5,8 +5,8 @@
  * An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema,
  * formed from iceman. Not case sensitive.
  */
-
 function isAnagram(arr1, arr2) {
+	// method with 2 loops
 	if (arr1.length !== arr2.length) {
 		return false;
 	}
@@ -37,6 +37,7 @@ function isAnagram(arr1, arr2) {
  */
 
 function same(arr1, arr2) {
+	// method with 3 loops
 	if (arr1.length !== arr2.length) {
 		return false;
 	}

@@ -1,7 +1,8 @@
 /**
- * Incremental sum - function that takes a number and adds all integers up to it.
+ * Objective
+ *
+ * Write a function that takes a number and adds all integers up to it.
  */
-
 function incrementalSumLoop(n) {
 	let sum = 0;
 
