@@ -1,6 +1,12 @@
 const { isAnagram } = require('./index');
 
 describe('::isAnagram', () => {
+	describe('given 2 empty strings', () => {
+		it('should be true', () => {
+			expect(isAnagram('', '')).toBe(true);
+		});
+	});
+
 	describe('given 2 words that have same number of letters', () => {
 		it('should be true', () => {
 			expect(isAnagram('cinema', 'iceman')).toBe(true);
