@@ -69,8 +69,35 @@ function countUniqueValues(arr) {
 	return ++i;
 }
 
+function areThereDuplicates(...args) {
+	if (!args.length) {
+		return false;
+	}
+
+	args.sort((a, b) => a > b);
+
+	let start = 0;
+	let next = 1;
+
+	while (next < args.length) {
+		if (args[start] === args[next]) {
+			return true;
+		}
+		start++;
+		next++;
+	}
+
+	return false;
+}
+
+function areThereDuplicatesSet() {
+	return new Set(arguments).size !== arguments.length;
+}
+
 module.exports = {
 	sumZero: sumZero,
 	countUniqueValuesByValue: countUniqueValuesByValue,
 	countUniqueValues: countUniqueValues,
+	areThereDuplicates: areThereDuplicates,
+	areThereDuplicatesSet: areThereDuplicatesSet,
 };
