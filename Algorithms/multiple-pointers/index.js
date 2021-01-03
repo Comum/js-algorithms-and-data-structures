@@ -69,6 +69,8 @@ function countUniqueValues(arr) {
 	return ++i;
 }
 
+// More examples
+
 function areThereDuplicates(...args) {
 	if (!args.length) {
 		return false;
@@ -117,6 +119,46 @@ function averagePair(arr, average) {
 	return false;
 }
 
+function isSubsequence(str1, str2) {
+	if (!str1) {
+		return true;
+	}
+
+	if (str2.length < str1.length) {
+		return false;
+	}
+
+	let i = 0;
+
+	for (let j = 0; j < str2.length; j++) {
+		if (str2[j] === str1[i]) {
+			i++;
+		}
+
+		if (i === str1.length) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function isSubsequenceRecursive(str1, str2) {
+	if (str1.length === 0) {
+		return true;
+	}
+
+	if (str2.length === 0) {
+		return false;
+	}
+
+	if (str2[0] === str1[0]) {
+		return isSubsequenceRecursive(str1.slice(1), str2.slice(1));
+	}
+
+	return isSubsequenceRecursive(str1, str2.slice(1));
+}
+
 module.exports = {
 	sumZero: sumZero,
 	countUniqueValuesByValue: countUniqueValuesByValue,
@@ -124,4 +166,6 @@ module.exports = {
 	areThereDuplicates: areThereDuplicates,
 	areThereDuplicatesSet: areThereDuplicatesSet,
 	averagePair: averagePair,
+	isSubsequence: isSubsequence,
+	isSubsequenceRecursive: isSubsequenceRecursive,
 };
