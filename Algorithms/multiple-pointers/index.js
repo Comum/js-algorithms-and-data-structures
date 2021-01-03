@@ -94,10 +94,34 @@ function areThereDuplicatesSet() {
 	return new Set(arguments).size !== arguments.length;
 }
 
+function averagePair(arr, average) {
+	if (!arr.length) {
+		return false;
+	}
+
+	let beginPointer = 0;
+	let endPointer = arr.length - 1;
+
+	while (beginPointer < endPointer) {
+		const averageTemp = (arr[beginPointer] + arr[endPointer]) / 2;
+
+		if (averageTemp < average) {
+			beginPointer++;
+		} else if (averageTemp > average) {
+			endPointer--;
+		} else if (averageTemp === average) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
 module.exports = {
 	sumZero: sumZero,
 	countUniqueValuesByValue: countUniqueValuesByValue,
 	countUniqueValues: countUniqueValues,
 	areThereDuplicates: areThereDuplicates,
 	areThereDuplicatesSet: areThereDuplicatesSet,
+	averagePair: averagePair,
 };
