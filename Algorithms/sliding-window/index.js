@@ -5,27 +5,60 @@
  * The function should calculate the maximum sum of n consecutive elements in the array.
  */
 function maxSubarraySum(arr, n) {
-	if (!arr.length || arr.length < n) {
-		return null;
-	}
+  if (!arr.length || arr.length < n) {
+    return null;
+  }
 
-	let max = 0;
-	let temp = 0;
+  let max = 0;
+  let temp = 0;
 
-	for (let i = 0; i < n; i++) {
-		max += arr[i];
-	}
+  for (let i = 0; i < n; i++) {
+    max += arr[i];
+  }
 
-	temp = max;
+  temp = max;
 
-	for (let i = n; i < arr.length; i++) {
-		temp = temp - arr[i - n] + arr[i];
-		max = Math.max(max, temp);
-	}
+  for (let i = n; i < arr.length; i++) {
+    temp = temp - arr[i - n] + arr[i];
+    max = Math.max(max, temp);
+  }
 
-	return max;
+  return max;
+}
+
+// more examples
+
+/**
+ * Objective.
+ *
+ * Write a function called minSubArrayLen which accepts two parameters - an array of positive integers and a positive integer.
+ *
+ * This function should return the minimal length of a contiguous subarray of which the sum is greater than or equal to the integer passed
+ * to the function. If there isn't one, return 0 instead.
+ */
+function minSubArrayLen(arr, sum) {
+  let total = 0;
+  let start = 0;
+  let end = 0;
+  let minLen = Infinity;
+
+  while (start < arr.length) {
+    if (total < sum && end < arr.length) {
+      total += arr[end];
+      end++;
+    } else if (total >= sum) {
+      minLen = Math.min(minLen, end - start);
+      total -= arr[start];
+      start++;
+    } else {
+      break;
+    }
+  }
+
+  return minLen === Infinity ? 0 : minLen;
 }
 
 module.exports = {
-	maxSubarraySum: maxSubarraySum,
+  maxSubarraySum: maxSubarraySum,
+  minSubArrayLen: minSubArrayLen,
 };
