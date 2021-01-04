@@ -58,7 +58,35 @@ function minSubArrayLen(arr, sum) {
   return minLen === Infinity ? 0 : minLen;
 }
 
+/**
+ * Objective.
+ *
+ * Write a function called findLongestSubstring, which accepts a string and returns the length of the longest substring with all distinct
+ * characvters.
+ */
+function findLongestSubstring(str) {
+  if (!str.length) {
+    return 0;
+  }
+
+  let longest = 0;
+  let seen = {};
+  let start = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (seen[str[i]]) {
+      start = Math.max(start, seen[str[i]]);
+    }
+
+    longest = Math.max(longest, i - start + 1);
+    seen[str[i]] = i + 1;
+  }
+
+  return longest;
+}
+
 module.exports = {
   maxSubarraySum: maxSubarraySum,
   minSubArrayLen: minSubArrayLen,
+  findLongestSubstring: findLongestSubstring,
 };
