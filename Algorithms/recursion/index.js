@@ -45,9 +45,31 @@ function fibonacciRecursive(target) {
   return fibonacciRecursive(target - 2) + fibonacciRecursive(target - 1);
 }
 
+/**
+ * Example using recursion as a helper method.
+ */
+function collectOdds(arr) {
+  let result = [];
+
+  (function collectOddsRecursively(helperInput) {
+    if (!helperInput.length) {
+      return;
+    }
+
+    if (helperInput[0] % 2 !== 0) {
+      result.push(helperInput[0]);
+    }
+
+    collectOddsRecursively(helperInput.slice(1));
+  })(arr);
+
+  return result;
+}
+
 module.exports = {
   countDown: countDown,
   sumRange: sumRange,
   factorial: factorial,
   fibonacciRecursive: fibonacciRecursive,
+  collectOdds: collectOdds,
 };
