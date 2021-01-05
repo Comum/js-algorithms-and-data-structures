@@ -66,10 +66,29 @@ function collectOdds(arr) {
   return result;
 }
 
+/**
+ * Example using "pure" recursion
+ */
+function collectOddsPure(arr) {
+  let newArr = [];
+
+  if (arr.length === 0) {
+    return newArr;
+  }
+
+  if (arr[0] % 2 !== 0) {
+    newArr.push(arr[0]);
+  }
+
+  newArr = newArr.concat(collectOddsPure(arr.slice(1)));
+  return newArr;
+}
+
 module.exports = {
   countDown: countDown,
   sumRange: sumRange,
   factorial: factorial,
   fibonacciRecursive: fibonacciRecursive,
   collectOdds: collectOdds,
+  collectOddsPure: collectOddsPure,
 };
