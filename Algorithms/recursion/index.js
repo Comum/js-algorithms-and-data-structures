@@ -84,6 +84,37 @@ function collectOddsPure(arr) {
   return newArr;
 }
 
+/**
+ * Objective
+ *
+ * Write a function called reverseStr which accepts a string and returns a new string in reverse.
+ */
+function reverseStr(str) {
+  if (str.length === 1) {
+    return str;
+  }
+
+  return str.substr(str.length - 1) + reverseStr(str.slice(0, -1));
+}
+
+/**
+ * Objective
+ * 
+ * Write a recursive function called isPalindrome which returns true if the string passed to it is a palindrome ( reads the same
+ * forward and backward ). Otherwise returns false.
+ */
+function isPalindrome(str) {
+  if (str <= 1) {
+    return true;
+  }
+
+  if (str.charAt(0) !== str.charAt(str.length - 1)) {
+    return false;
+  }
+
+  return isPalindrome(str.substring(1).slice(0, -1));
+}
+
 module.exports = {
   countDown: countDown,
   sumRange: sumRange,
@@ -91,4 +122,6 @@ module.exports = {
   fibonacciRecursive: fibonacciRecursive,
   collectOdds: collectOdds,
   collectOddsPure: collectOddsPure,
+  reverseStr: reverseStr,
+  isPalindrome: isPalindrome,
 };
