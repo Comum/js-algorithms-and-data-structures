@@ -99,7 +99,7 @@ function reverseStr(str) {
 
 /**
  * Objective
- * 
+ *
  * Write a recursive function called isPalindrome which returns true if the string passed to it is a palindrome ( reads the same
  * forward and backward ). Otherwise returns false.
  */
@@ -115,6 +115,20 @@ function isPalindrome(str) {
   return isPalindrome(str.substring(1).slice(0, -1));
 }
 
+function arrFlatten(arr) {
+  let newArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      newArr = newArr.concat(arrFlatten(arr[i]));
+    } else {
+      newArr.push(arr[i]);
+    }
+  }
+
+  return newArr;
+}
+
 module.exports = {
   countDown: countDown,
   sumRange: sumRange,
@@ -124,4 +138,5 @@ module.exports = {
   collectOddsPure: collectOddsPure,
   reverseStr: reverseStr,
   isPalindrome: isPalindrome,
+  arrFlatten: arrFlatten,
 };
