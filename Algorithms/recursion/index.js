@@ -131,7 +131,7 @@ function arrFlatten(arr) {
 
 /**
  * Objective
- * 
+ *
  * Write a recursive function called nestedEvenSum. Return the sum of all the even numbers in an object which
  * may contain nested objects.
  */
@@ -147,6 +147,36 @@ function nestedEvenSum(obj, sum = 0) {
   return sum;
 }
 
+function stringifyNumbers(obj) {
+  let newObj = {};
+
+  for (let key in obj) {
+    if (typeof obj[key] === "object" && !Array.isArray(obj[key])) {
+      newObj[key] = stringifyNumbers(obj[key]);
+    } else if (typeof obj[key] === "number") {
+      newObj[key] = obj[key].toString();
+    } else {
+      newObj[key] = obj[key];
+    }
+  }
+
+  return newObj;
+}
+
+function collectStrings(obj) {
+  let arr = [];
+
+  for (let key in obj) {
+    if (typeof obj[key] === "object") {
+      arr = arr.concat(collectStrings(obj[key]));
+    } else if (typeof obj[key] === "string") {
+      arr.push(obj[key]);
+    }
+  }
+
+  return arr;
+}
+
 module.exports = {
   countDown: countDown,
   sumRange: sumRange,
@@ -158,4 +188,6 @@ module.exports = {
   isPalindrome: isPalindrome,
   arrFlatten: arrFlatten,
   nestedEvenSum: nestedEvenSum,
+  stringifyNumbers: stringifyNumbers,
+  collectStrings: collectStrings,
 };
