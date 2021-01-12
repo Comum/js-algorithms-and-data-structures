@@ -6,4 +6,4 @@
 -   Sliding Window - create a "window" to handle a subset of data in a large set of data.
 -   Divide and Conquer - divide a data set into smaller chunks and then repeat a process with a subset of data.
 -   Recursion - repeated application of a recursive procedure or definition.
--   Search - multiple search algorithms
+-   Search - multiple search algorithms.
